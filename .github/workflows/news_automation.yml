@@ -35,9 +35,6 @@ jobs:
         git add outputs/ fonts/
         git diff --staged --quiet || git commit -m "📰 Professional post - $(date +'%d %b %I:%M %p')"
         git push
-```
-
----
 
 ## 5. BEST PRACTICES FOR NEWS-STYLE INSTAGRAM VISUALS
 
