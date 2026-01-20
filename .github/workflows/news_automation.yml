@@ -1,39 +1,60 @@
-name: Enhanced Hourly News Automation
+name: Professional News Automation
 
 on:
   schedule:
-    # Runs every hour at minute 0
     - cron: '0 * * * *'
-  workflow_dispatch:  # Allows manual trigger
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
-  generate-enhanced-news-post:
+  generate-professional-post:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout repository
+    - name: Checkout
       uses: actions/checkout@v3
       
-    - name: Set up Python
+    - name: Setup Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.10'
         
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
         pip install feedparser pillow requests
         
-    - name: Run enhanced news automation
-      env:
-        UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+    - name: Generate professional news post
       run: python news_bot.py
       
-    - name: Commit and push outputs
+    - name: Commit outputs
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add outputs/
-        git add fonts/
-        git diff --quiet && git diff --staged --quiet || git commit -m "🤖 Enhanced post - $(date +'%Y-%m-%d %H:%M') 🎨"
+        git config user.email "alerts@hydnews.bot"
+        git config user.name "HYD Alerts Bot"
+        git add outputs/ fonts/
+        git diff --staged --quiet || git commit -m "📰 Professional post - $(date +'%d %b %I:%M %p')"
         git push
+```
+
+---
+
+## 5. BEST PRACTICES FOR NEWS-STYLE INSTAGRAM VISUALS
+
+### ✅ **DO's**
+
+1. **High Contrast**
+   - Always use white text on dark background
+   - Minimum contrast ratio: 7:1 (WCAG AAA standard)
+
+2. **Bold Typography**
+   - Headlines: 68-75px
+   - Keep line length under 25 characters
+   - Use sentence case, not ALL CAPS (except tags)
+
+3. **Clear Hierarchy**
+```
+   PRIORITY 1: Headline (largest, bold)
+   PRIORITY 2: Breaking tag (colored banner)
+   PRIORITY 3: Branding (footer, smaller)
+   PRIORITY 4: Metadata (timestamp, location)
