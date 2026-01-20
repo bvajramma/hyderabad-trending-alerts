@@ -35,23 +35,3 @@ jobs:
         git add outputs/ fonts/
         git diff --staged --quiet || git commit -m "📰 Professional post - $(date +'%d %b %I:%M %p')"
         git push
-
-## 5. BEST PRACTICES FOR NEWS-STYLE INSTAGRAM VISUALS
-
-### ✅ **DO's**
-
-1. **High Contrast**
-   - Always use white text on dark background
-   - Minimum contrast ratio: 7:1 (WCAG AAA standard)
-
-2. **Bold Typography**
-   - Headlines: 68-75px
-   - Keep line length under 25 characters
-   - Use sentence case, not ALL CAPS (except tags)
-
-3. **Clear Hierarchy**
-```
-   PRIORITY 1: Headline (largest, bold)
-   PRIORITY 2: Breaking tag (colored banner)
-   PRIORITY 3: Branding (footer, smaller)
-   PRIORITY 4: Metadata (timestamp, location)
